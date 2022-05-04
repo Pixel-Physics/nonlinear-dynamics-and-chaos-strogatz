@@ -8,7 +8,6 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-plugin-image",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -28,6 +27,13 @@ const config: GatsbyConfig = {
       },
       //@ts-ignore
       __key: "pages",
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        remarkPlugins: [require("remark-math")],
+        rehypePlugins: [require("rehype-katex")],
+      },
     },
   ],
 };
