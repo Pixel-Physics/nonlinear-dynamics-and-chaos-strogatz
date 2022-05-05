@@ -1,6 +1,4 @@
-import type { GatsbyConfig } from "gatsby";
-
-const config: GatsbyConfig = {
+const config = {
   siteMetadata: {
     title: `book_nonlinear_dynamics_and_chaos`,
     siteUrl: `https://www.yourdomain.tld`,
@@ -10,6 +8,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -31,6 +30,12 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        extensions: [".md", ".mdx"],
+        // Layout
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout/index.js"),
+        },
+        // Katex rendering
         remarkPlugins: [require("remark-math")],
         rehypePlugins: [require("rehype-katex")],
       },
@@ -38,4 +43,4 @@ const config: GatsbyConfig = {
   ],
 };
 
-export default config;
+module.exports = config;
