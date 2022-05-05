@@ -32,9 +32,9 @@ const config = {
       options: {
         extensions: [".md", ".mdx"],
         // Layout
-        defaultLayouts: {
-          default: require.resolve("./src/components/layout/index.js"),
-        },
+        // defaultLayouts: {
+        //   default: require.resolve("./src/components/layout/index.js"),
+        // },
         // Katex rendering
         remarkPlugins: [require("remark-math")],
         rehypePlugins: [require("rehype-katex")],
