@@ -6,7 +6,7 @@
     - [ ] katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3
 * [ ] Add sliders to play with variables.
 * [ ] Solve harmonic oscillator problems with calculus and linear analysis.
-* [ ] Positioning of sketches
+* [x] Positioning of sketches
 * [x] Create utility functions library
     - [x] grid-lines
         - [ ] axes with labels

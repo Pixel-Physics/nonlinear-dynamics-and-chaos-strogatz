@@ -6,9 +6,10 @@ const config = {
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-tsconfig-paths",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
