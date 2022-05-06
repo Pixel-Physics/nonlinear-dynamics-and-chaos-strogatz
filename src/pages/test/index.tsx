@@ -6,13 +6,44 @@ import p5 from "p5";
 import Sketch from "react-p5";
 import { gridLines } from "../../p5-pixel-physics/gridLines";
 
+export const Test = () => {
+  return (
+    <Layout>
+      <Helmet>
+        <title>Test</title>
+      </Helmet>
+      <h1>Damped Harmonic Oscillator</h1>
+      <p>The equation for the damped harmonic oscillator.</p>
+      <TeX math="m \dfrac{d^2x}{dt^2} + b \dfrac{dx}{dt} + kx = 0" block />
+      <DampedHarmonicOscillatorPhaseSpace />
+      <TeX math="test" block />
+      <DampedHarmonicOscillator />
+    </Layout>
+  );
+};
+
+export default Test;
+
 const DampedHarmonicOscillator = () => {
+  function setup(p: p5, canvasParentRef: Element) {
+    const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
+    canvas.style("border", "solid");
+  }
+
+  function draw(p: p5) {
+    p.noLoop();
+  }
+
+  return <Sketch setup={setup} draw={draw} />;
+};
+
+const DampedHarmonicOscillatorPhaseSpace = () => {
   const pointRadius = 4;
   const [m, b, k] = [5, 0.05, 10];
   let [x1, x2, t, dt, tMax] = [0, 150, 0, 0.1, 50];
 
   function setup(p: p5, canvasParentRef: Element) {
-    const canvas = p.createCanvas(400, 400);
+    const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
     canvas.style("border", "solid");
     p.background(0);
     drawGridLines(p);
@@ -68,20 +99,3 @@ const DampedHarmonicOscillator = () => {
 
   return <Sketch setup={setup} draw={draw} />;
 };
-
-const Test = () => {
-  return (
-    <Layout>
-      <Helmet>
-        <title>Test</title>
-      </Helmet>
-      <h1>Damped Harmonic Oscillator</h1>
-      <p>The equation for the damped harmonic oscillator.</p>
-      <TeX math="m \dfrac{d^2x}{dt^2} + b \dfrac{dx}{dt} + kx = 0" block />
-      <DampedHarmonicOscillator />
-      <TeX math="test" block />
-    </Layout>
-  );
-};
-
-export default Test;
