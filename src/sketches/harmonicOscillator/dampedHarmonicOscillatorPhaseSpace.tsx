@@ -6,7 +6,7 @@ import { gridLines } from "../../p5-pixel-physics/gridLines";
 export const DampedHarmonicOscillatorPhaseSpace = () => {
   const pointRadius = 4;
   const [m, b, k] = [5, 0.05, 10];
-  let [x1, x2, t, dt, tMax] = [0, 150, 0, 0.1, 50];
+  let [x, v, t, dt, tMax] = [0, 150, 0, 0.1, 50];
 
   function setup(p: p5, canvasParentRef: Element) {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
@@ -21,7 +21,7 @@ export const DampedHarmonicOscillatorPhaseSpace = () => {
 
     p.noFill();
     p.stroke(255);
-    drawRipple(p, x1, x2);
+    drawRipple(p, x, v);
     p.stroke(0);
   }
 
@@ -32,7 +32,7 @@ export const DampedHarmonicOscillatorPhaseSpace = () => {
       200 + 50 * p.sin((2 * p.PI * t) / tMax),
       200
     );
-    p.ellipse(x1, x2, pointRadius, pointRadius);
+    p.ellipse(x, v, pointRadius, pointRadius);
     update();
     if (t > tMax) {
       p.noLoop();
@@ -42,13 +42,13 @@ export const DampedHarmonicOscillatorPhaseSpace = () => {
         200 + 50 * p.sin((2 * p.PI * t) / tMax),
         200
       );
-      drawRipple(p, x1, x2);
+      drawRipple(p, x, v);
     }
   }
 
   function update() {
-    x1 += x2 * dt;
-    x2 += (-b / m) * x2 - (k / m) * x1 * dt;
+    x += v * dt;
+    v += (-b / m) * v - (k / m) * x * dt;
     t += dt;
   }
 

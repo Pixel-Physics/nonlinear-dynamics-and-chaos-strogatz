@@ -1,9 +1,12 @@
+# TODO
 * [x] Clear out mdx config.
 * [x] Cleaner way to write processing code in react.
     - https://github.com/Gherciu/react-p5#readme
 * [ ] Show graphs of x-y and x1 x2
     - [ ] draw a spring with a mass
+    - [x] refactor dampedHarmonicOscillator phase space with clearer variables.
     - [ ] katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3
+    - [ ] ability to animate or just show end result for phase-space diagrams
 * [ ] Add sliders to play with variables.
 * [ ] Solve harmonic oscillator problems with calculus and linear analysis.
 * [x] Positioning of sketches
@@ -11,3 +14,9 @@
     - [x] grid-lines
         - [ ] axes with labels
         - [ ] show coordinates on hover
+
+## Aesthetics
+
+* [ ] dark mode
+    - [ ] how to pass this to processing sketches?
+* [ ] max width with a paper-style background on the sides
