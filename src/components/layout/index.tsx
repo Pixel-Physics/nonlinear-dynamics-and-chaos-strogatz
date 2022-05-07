@@ -5,10 +5,7 @@ type LayoutProps = {};
 
 const Layout = ({ children }: React.PropsWithChildren<LayoutProps>) => (
   <div>
-    <Helmet>
-      <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
-    </Helmet>
-    <div>* This page has processing enabled</div>
+    * Wrapped in Layout
     <div>{children}</div>
   </div>
 );
