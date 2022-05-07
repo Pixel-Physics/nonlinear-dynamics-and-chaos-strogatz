@@ -20,3 +20,4 @@
 * [ ] dark mode
     - [ ] how to pass this to processing sketches?
 * [ ] max width with a paper-style background on the sides
+* [ ] common styling for sketches
