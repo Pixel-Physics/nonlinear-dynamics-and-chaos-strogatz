@@ -3,56 +3,67 @@ import p5 from "p5";
 import Sketch from "react-p5";
 import { CircularBuffer } from "../../pixel-physics-p5/dataStructures";
 
+/**
+ * @param baseX - x-coordinate for the base of the spring
+ * @param baseY - y-coordinate for the base of the spring
+ * @param x0 - Equilibrium length of the spring
+ * @param x - displacement from x0
+ */
 class Spring {
-  baseX: number;
-  baseY: number;
-  _stretch: number;
-  width: number;
-  coils: number;
-  points: number[][] = [];
-  tracePoints: CircularBuffer<number[]>;
+  readonly baseX: number;
+  readonly baseY: number;
+  readonly x0: number;
+  private _x: number;
+  readonly width: number;
+  readonly coils: number;
+  private points: number[][] = [];
+  private tracePoints: CircularBuffer<number[]>;
 
-  constructor(
-    baseX: number,
-    baseY: number,
-    stretch = 10,
+  constructor({
+    baseX = 0,
+    baseY = 0,
+    x0 = 50,
+    x = 0,
     width = 10,
     coils = 10,
-    traceLength = 500
-  ) {
+    traceLength = 500,
+  }) {
     this.baseX = baseX;
     this.baseY = baseY;
-    this._stretch = stretch;
+    this.x0 = x0,
+    this._x = x;
     this.width = width;
     this.coils = coils;
     this.tracePoints = new CircularBuffer<number[]>(traceLength);
     this.computePoints();
   }
 
-  set stretch(newStretch: number) {
-    this._stretch = newStretch;
+  set x(newX: number) {
+    this._x = newX;
     this.computePoints();
   }
 
-  get stretch() {
-    return this._stretch;
+  get x() {
+    return this._x;
   }
 
   get lastPoint(): number[] {
     return this.points[this.points.length - 1];
   }
 
+  // TODO: Calculate coils and length of spring properly
   private computePoints() {
+    const stretch = this.x + this.x0 / this.coils / 2
     this.points = [];
     this.points.push([this.baseX, this.baseY]);
-    this.points.push([this.baseX, this.baseY + this.stretch]);
-    for (var i = 2; i < this.coils - 1; i++) {
+    this.points.push([this.baseX, this.baseY + stretch]);
+    for (var i = 2; i < this.coils + 2; i++) {
       const offset = (this.width / 2) * (i % 2 ? 1 : -1);
       const x = this.baseX + offset;
-      this.points.push([x, this.baseY + i * this.stretch]);
+      this.points.push([x, this.baseY + i * stretch]);
     }
-    this.points.push([this.baseX, this.baseY + i * this.stretch]);
-    this.points.push([this.baseX, this.baseY + (i + 1) * this.stretch]);
+    this.points.push([this.baseX, this.baseY + i * stretch]);
+    this.points.push([this.baseX, this.baseY + (i + 1) * stretch]);
   }
 
   draw(p: p5) {
@@ -85,7 +96,7 @@ class Spring {
 export const DampedHarmonicOscillatorPhysical = () => {
   const [m, b, k] = [2, 0.1, 10];
   let [x, v, t, dt, tMax] = [0, 150, 0, 0.1, 30];
-  const spring = new Spring(20, 50, 5);
+  const spring = new Spring({ baseX: 20, baseY: 110, x0: 90 });
 
   function setup(p: p5, canvasParentRef: Element) {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
@@ -96,7 +107,7 @@ export const DampedHarmonicOscillatorPhysical = () => {
 
   function draw(p: p5) {
     p.background(220);
-    spring.stretch = 10 + x;
+    spring.x = x;
     spring.draw(p);
     spring.trace(p);
     update();
