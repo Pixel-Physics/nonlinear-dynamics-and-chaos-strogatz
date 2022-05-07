@@ -49,10 +49,10 @@ class Spring {
     for (var i = 2; i < this.coils - 1; i++) {
       const offset = (this.width / 2) * (i % 2 ? 1 : -1);
       const x = this.baseX + offset;
-      this.points.push([x, i * this.stretch]);
+      this.points.push([x, this.baseY + i * this.stretch]);
     }
-    this.points.push([this.baseX, i * this.stretch]);
-    this.points.push([this.baseX, (i + 1) * this.stretch]);
+    this.points.push([this.baseX, this.baseY + i * this.stretch]);
+    this.points.push([this.baseX, this.baseY + (i + 1) * this.stretch]);
   }
 
   draw(p: p5) {
@@ -69,7 +69,8 @@ class Spring {
    * Trace the path the spring takes through time.
    */
   trace(p: p5) {
-    const tracePoint = [this.lastPoint[0], this.lastPoint[1]];
+    // add 10 for rect height
+    const tracePoint = [this.lastPoint[0], this.lastPoint[1] + 10];
     this.tracePoints.put(tracePoint);
     p.push();
     p.fill(0);
@@ -82,7 +83,10 @@ class Spring {
 }
 
 export const DampedHarmonicOscillatorPhysical = () => {
-  const spring = new Spring(20, 0);
+  const [m, b, k] = [2, 0.1, 10];
+  let [x, v, t, dt, tMax] = [0, 150, 0, 0.1, 30];
+  const spring = new Spring(20, 50, 5);
+
   function setup(p: p5, canvasParentRef: Element) {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
     canvas.style("border", "solid");
@@ -92,13 +96,19 @@ export const DampedHarmonicOscillatorPhysical = () => {
 
   function draw(p: p5) {
     p.background(220);
-    spring.stretch = 10 + 5 * p.sin(p.frameCount / 20);
+    spring.stretch = 10 + x;
     spring.draw(p);
     spring.trace(p);
-    if (p.frameCount > 300) {
-      console.log(spring.tracePoints.buffer);
+    update();
+    if (t > tMax) {
       p.noLoop();
     }
+  }
+
+  function update() {
+    x += v * dt;
+    v += (-b / m) * v - (k / m) * x * dt;
+    t += dt;
   }
 
   return <Sketch setup={setup} draw={draw} />;

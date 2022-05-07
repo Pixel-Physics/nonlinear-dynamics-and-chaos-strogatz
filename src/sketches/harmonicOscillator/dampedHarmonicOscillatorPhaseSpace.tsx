@@ -5,8 +5,8 @@ import { gridLines } from "../../pixel-physics-p5/gridLines";
 
 export const DampedHarmonicOscillatorPhaseSpace = () => {
   const pointRadius = 4;
-  const [m, b, k] = [5, 0.05, 10];
-  let [x, v, t, dt, tMax] = [0, 150, 0, 0.1, 50];
+  const [m, b, k] = [2, 0.1, 10];
+  let [x, v, t, dt, tMax] = [0, 150, 0, 0.1, 30];
 
   function setup(p: p5, canvasParentRef: Element) {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);

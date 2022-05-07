@@ -8,9 +8,10 @@
         - [x] implement js circular buffer
         - [x] trace spring path
         - [x] ~~use p-vectors instead of points~~ (over-engineering)
-        - [ ] implement the actual mathematics
+        - [x] implement the actual mathematics (super-hacky, but done)
+    - [x] ~~katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3~~ (not now)
     - [ ] Damped oscillator sketches should take initial conditions as arguments.
-    - [ ] katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3
+* [ ] position sketches side-by-side
 * [ ] Add sliders to play with variables.
     - [ ] should have a play button that restarts the sketch after variables have been set.
 * [ ] Solve harmonic oscillator problems with calculus and linear analysis.
@@ -20,6 +21,7 @@
     - [x] grid-lines
         - [ ] axes with labels
         - [ ] show coordinates on hover
+* [ ] Deploy to GitHub Pages
 
 ## Aesthetics
 
