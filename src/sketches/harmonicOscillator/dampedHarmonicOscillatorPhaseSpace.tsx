@@ -1,7 +1,7 @@
 import p5 from "p5";
 import React from "react";
 import Sketch from "react-p5";
-import { gridLines } from "../../p5-pixel-physics/gridLines";
+import { gridLines } from "../../pixel-physics-p5/gridLines";
 
 export const DampedHarmonicOscillatorPhaseSpace = () => {
   const pointRadius = 4;
