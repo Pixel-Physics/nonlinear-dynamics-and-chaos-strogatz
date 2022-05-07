@@ -3,8 +3,11 @@
 * [x] Cleaner way to write processing code in react.
     - https://github.com/Gherciu/react-p5#readme
 * [ ] Show graphs of x-y and x1 x2
-    - [ ] draw a spring with a mass
     - [x] refactor dampedHarmonicOscillator phase space with clearer variables.
+    - [x] draw a spring with a mass
+        - [ ] trace sine wave
+        - [ ] implement the actual mathematics
+    - [ ] Damped oscillator sketches should take initial conditions as arguments.
     - [ ] katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3
     - [ ] ability to animate or just show end result for phase-space diagrams
 * [ ] Add sliders to play with variables.

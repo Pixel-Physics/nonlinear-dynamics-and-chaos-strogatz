@@ -87,8 +87,10 @@ const DampedHarmonicOscillator = () => {
         const current = this.points[i];
         p.line(prev[0], prev[1], current[0], current[1]);
       }
+      const lastPoint = this.points[this.points.length - 1];
+      p.rectMode(p.CENTER)
+      p.rect(lastPoint[0], lastPoint[1], 20, 20)
     }
-
   }
 
   const spring = new Spring(0, 0);
