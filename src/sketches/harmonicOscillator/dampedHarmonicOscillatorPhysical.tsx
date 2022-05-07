@@ -3,9 +3,6 @@ import p5 from "p5";
 import Sketch from "react-p5";
 import { CircularBuffer } from "../../pixel-physics-p5/dataStructures";
 
-/**
- * TODO: Use curves to connect the points for a nicer looking spring.
- */
 class Spring {
   baseX: number;
   baseY: number;
@@ -21,7 +18,7 @@ class Spring {
     stretch = 10,
     width = 10,
     coils = 10,
-    traceLength = 100
+    traceLength = 500
   ) {
     this.baseX = baseX;
     this.baseY = baseY;
@@ -58,8 +55,7 @@ class Spring {
     this.points.push([this.baseX, (i + 1) * this.stretch]);
   }
 
-  draw(p: p5, stretch: number) {
-    this.stretch = stretch;
+  draw(p: p5) {
     for (let i = 1; i < this.points.length; i++) {
       const prev = this.points[i - 1];
       const current = this.points[i];
@@ -96,7 +92,8 @@ export const DampedHarmonicOscillatorPhysical = () => {
 
   function draw(p: p5) {
     p.background(220);
-    spring.draw(p, 3 + 10 * p.abs(p.sin(p.frameCount / 20)));
+    spring.stretch = 10 + 5 * p.sin(p.frameCount / 20);
+    spring.draw(p);
     spring.trace(p);
     if (p.frameCount > 300) {
       console.log(spring.tracePoints.buffer);

@@ -7,7 +7,7 @@
     - [x] draw a spring with a mass
         - [x] implement js circular buffer
         - [x] trace spring path
-        - [ ] use p-vectors instead of points
+        - [x] ~~use p-vectors instead of points~~ (over-engineering)
         - [ ] implement the actual mathematics
     - [ ] Damped oscillator sketches should take initial conditions as arguments.
     - [ ] katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3
