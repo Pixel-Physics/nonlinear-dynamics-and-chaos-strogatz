@@ -12,6 +12,7 @@
     - [x] ~~katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3~~ (not now)
 
 * START
+    - [x] Cleaner spring class
     - [ ] Damped oscillator sketches should take initial conditions as arguments.
     - [ ] position sketches side-by-side
 * [ ] Add sliders to play with variables.
