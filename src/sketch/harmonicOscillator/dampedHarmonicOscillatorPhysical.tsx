@@ -124,9 +124,6 @@ export const DampedHarmonicOscillatorPhysical = ({
 
   function setup(p: p5, canvasParentRef: Element) {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
-    canvas.style("border", "solid");
-    canvas.style("margin", "0px auto");
-    canvas.style("display", "block");
   }
 
   function draw(p: p5) {

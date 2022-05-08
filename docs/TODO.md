@@ -27,11 +27,10 @@
 
 ## Deployment
 
-* [ ] update README.md
-* [ ] change page path from test
+* [x] update README.md
+* [x] change page path from test
 * [ ] add poweredBy page showing open-source technology used.
 
-* [ ] add Bulma and center stuff
 * [ ] max width with a paper-style background on the sides
 * [ ] Header/Footer
 * [ ] Favicon
