@@ -1,3 +1,1 @@
-import { CircularBuffer } from "./CircularBuffer";
-
-export { CircularBuffer };
+export { CircularBuffer } from './CircularBuffer';

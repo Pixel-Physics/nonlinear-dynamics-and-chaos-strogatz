@@ -1,13 +1,14 @@
 /**
  * Iterable Circular Buffer
- * 
+ * TODO: Implement iteration protocol
+ *
  * https://en.wikipedia.org/wiki/Circular_buffer
  */
 export class CircularBuffer<T> {
   size: number;
-  buffer: Array<T | null>;
-  end = 0;
-  start = 0;
+  readonly buffer: Array<T | null>;
+  private end = 0;
+  private start = 0;
 
   constructor(size: number) {
     this.size = size;

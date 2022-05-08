@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import p5 from "p5";
 import Sketch from "react-p5";
-import { CircularBuffer } from "../../pixel-physics-p5/dataStructures";
+import { CircularBuffer } from "../../pixel-physics-p5/dataStructures/";
 import {
   defaultHarmonicOscillatorProps as defaultProps,
   HarmonicOscillatorProps as Props,
@@ -120,7 +120,7 @@ export const DampedHarmonicOscillatorPhysical = ({
   dt = defaultProps.dt,
   tMax = defaultProps.tMax,
 }: Props) => {
-  const spring = new Spring({ baseX: 20, baseY: 110, x0: 90 });
+  const [spring] = useState(new Spring({ baseX: 20, baseY: 110, x0: 90 }));
 
   function setup(p: p5, canvasParentRef: Element) {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
