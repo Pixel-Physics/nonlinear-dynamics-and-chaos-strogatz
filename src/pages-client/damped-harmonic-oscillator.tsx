@@ -11,7 +11,7 @@ const DampedHarmonicOscillator = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Test</title>
+        <title>Damped Harmonic Oscillator</title>
       </Helmet>
       <h1>Damped Harmonic Oscillator</h1>
       <p>The equation for the damped harmonic oscillator.</p>

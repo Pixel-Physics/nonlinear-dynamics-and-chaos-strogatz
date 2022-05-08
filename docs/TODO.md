@@ -22,7 +22,6 @@
 * [x] Create utility functions library
     - [x] grid-lines
         - [ ] axes with labels
-* [ ] common styling for sketches
 
 ## Deployment
 

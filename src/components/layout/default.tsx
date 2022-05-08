@@ -1,12 +1,15 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { css } from "@emotion/react";
 
 type LayoutProps = {};
 
+const style = css({
+  textAlign: "center",
+});
+
 const Layout = ({ children }: React.PropsWithChildren<LayoutProps>) => (
   <div>
-    * Wrapped in Layout
-    <div>{children}</div>
+    <div css={style}>{children}</div>
   </div>
 );
 
