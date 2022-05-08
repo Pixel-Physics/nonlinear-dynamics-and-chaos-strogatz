@@ -14,10 +14,10 @@
 * START
     - [x] Cleaner spring class
     - [x] Damped oscillator sketches should take initial conditions as arguments.
+* [ ] Solve harmonic oscillator problems with calculus and linear analysis.
 * [ ] Add sliders to play with variables.
     - [ ] should have a play button that restarts the sketch after variables have been set.
-* [ ] Solve harmonic oscillator problems with calculus and linear analysis.
-* [ ] Split pixel-physics-p5 into it's own package.
+* [ ] Figure out a wat to scrub through the sketches.
 * [x] Positioning of sketches
 * [x] Create utility functions library
     - [x] grid-lines

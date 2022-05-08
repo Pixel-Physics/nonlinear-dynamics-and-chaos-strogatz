@@ -102,7 +102,7 @@ class Spring {
     this.tracePoints.put(tracePoint);
     p.push();
     p.fill(0);
-    for (const point of this.tracePoints.buffer) {
+    for (const point of this.tracePoints) {
       if (!point) break;
       p.point(point[0]++, point[1]);
     }

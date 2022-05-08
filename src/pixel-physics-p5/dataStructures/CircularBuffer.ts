@@ -1,12 +1,11 @@
 /**
  * Iterable Circular Buffer
- * TODO: Implement iteration protocol
  *
  * https://en.wikipedia.org/wiki/Circular_buffer
  */
 export class CircularBuffer<T> {
-  size: number;
-  readonly buffer: Array<T | null>;
+  readonly size: number;
+  private buffer: Array<T | null>;
   private end = 0;
   private start = 0;
 
@@ -23,5 +22,16 @@ export class CircularBuffer<T> {
   get(): T | null {
     const item = this.buffer[this.start++];
     return item;
+  }
+
+  [Symbol.iterator]() {
+    let index = 0;
+
+    return {
+      next: () => ({
+        value: this.buffer[index++],
+        done: !(index in this.buffer),
+      }),
+    };
   }
 }
