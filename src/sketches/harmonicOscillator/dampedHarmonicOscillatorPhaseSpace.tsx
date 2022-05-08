@@ -2,17 +2,28 @@ import p5 from "p5";
 import React from "react";
 import Sketch from "react-p5";
 import { gridLines } from "../../pixel-physics-p5/gridLines";
+import {
+  defaultHarmonicOscillatorProps as defaultProps,
+  HarmonicOscillatorProps as Props,
+} from "./common";
 
-export const DampedHarmonicOscillatorPhaseSpace = () => {
+export const DampedHarmonicOscillatorPhaseSpace = ({
+  m = defaultProps.m,
+  b = defaultProps.b,
+  k = defaultProps.k,
+  x = defaultProps.x,
+  v = defaultProps.v,
+  t = defaultProps.t,
+  dt = defaultProps.dt,
+  tMax = defaultProps.tMax,
+}: Props) => {
   const pointRadius = 4;
-  const [m, b, k] = [2, 0.1, 10];
-  let [x, v, t, dt, tMax] = [0, 150, 0, 0.1, 30];
 
   function setup(p: p5, canvasParentRef: Element) {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
     canvas.style("border", "solid");
-    canvas.style("margin", "0px auto")
-    canvas.style("display", "block")
+    canvas.style("margin", "0px auto");
+    canvas.style("display", "block");
     p.background(0);
     drawGridLines(p);
     p.stroke(0);

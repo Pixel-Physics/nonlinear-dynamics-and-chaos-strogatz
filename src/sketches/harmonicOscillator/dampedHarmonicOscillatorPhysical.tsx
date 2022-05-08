@@ -2,6 +2,10 @@ import React from "react";
 import p5 from "p5";
 import Sketch from "react-p5";
 import { CircularBuffer } from "../../pixel-physics-p5/dataStructures";
+import {
+  defaultHarmonicOscillatorProps as defaultProps,
+  HarmonicOscillatorProps as Props,
+} from "./common";
 
 /**
  * @param baseX - x-coordinate for the base of the spring
@@ -58,7 +62,6 @@ class Spring {
     return this.x0 + this.x;
   }
 
-  // TODO: Calculate coils and length of spring properly
   private computePoints() {
     const dY = this.length / this.coils / 2;
     let i = 0;
@@ -92,7 +95,6 @@ class Spring {
    * Trace the path the spring takes through time.
    */
   trace(p: p5) {
-    // add 10 for rect height
     const tracePoint = [
       this.lastPoint[0],
       this.lastPoint[1] + this.massSize / 2,
@@ -108,9 +110,16 @@ class Spring {
   }
 }
 
-export const DampedHarmonicOscillatorPhysical = () => {
-  const [m, b, k] = [2, 0.1, 10];
-  let [x, v, t, dt, tMax] = [0, 150, 0, 0.1, 30];
+export const DampedHarmonicOscillatorPhysical = ({
+  m = defaultProps.m,
+  b = defaultProps.b,
+  k = defaultProps.k,
+  x = defaultProps.x,
+  v = defaultProps.v,
+  t = defaultProps.t,
+  dt = defaultProps.dt,
+  tMax = defaultProps.tMax,
+}: Props) => {
   const spring = new Spring({ baseX: 20, baseY: 110, x0: 90 });
 
   function setup(p: p5, canvasParentRef: Element) {

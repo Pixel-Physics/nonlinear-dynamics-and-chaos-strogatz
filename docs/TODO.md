@@ -13,7 +13,7 @@
 
 * START
     - [x] Cleaner spring class
-    - [ ] Damped oscillator sketches should take initial conditions as arguments.
+    - [x] Damped oscillator sketches should take initial conditions as arguments.
     - [ ] position sketches side-by-side
 * [ ] Add sliders to play with variables.
     - [ ] should have a play button that restarts the sketch after variables have been set.
