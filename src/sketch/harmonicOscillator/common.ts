@@ -3,7 +3,7 @@ export const defaultHarmonicOscillatorProps = {
   b: 0.1,
   k: 10,
   x: 0,
-  v: 150,
+  v: 100,
   t: 0,
   dt: 0.1,
   tMax: 30,

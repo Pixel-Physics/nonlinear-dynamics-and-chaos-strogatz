@@ -15,9 +15,11 @@
     - [x] Cleaner spring class
     - [x] Damped oscillator sketches should take initial conditions as arguments.
 * [ ] Solve harmonic oscillator problems with calculus and linear analysis.
-* [ ] Add sliders to play with variables.
-    - [ ] should have a play button that restarts the sketch after variables have been set.
-* [ ] Figure out a wat to scrub through the sketches.
+* [x] Add sliders to play with variables.
+    - [x] ~~should have a play button that restarts the sketch after variables have been set.~~ Restart automatically.
+    - [ ] control multiple components with one slider
+* [ ] Figure out a way to scrub through the sketches.
+    - [ ] caching??
 * [x] Positioning of sketches
 * [x] Create utility functions library
     - [x] grid-lines
