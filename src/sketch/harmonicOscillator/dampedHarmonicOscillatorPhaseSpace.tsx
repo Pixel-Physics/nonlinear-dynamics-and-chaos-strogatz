@@ -56,7 +56,7 @@ export const DampedHarmonicOscillatorPhaseSpace = ({
 
   function update() {
     x += v * dt;
-    v += (-b / m) * v - (k / m) * x * dt;
+    v += ((-b / m) * v - (k / m) * x) * dt;
     t += dt;
   }
 

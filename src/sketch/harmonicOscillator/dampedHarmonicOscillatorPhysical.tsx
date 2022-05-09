@@ -129,8 +129,8 @@ export const DampedHarmonicOscillatorPhysical = ({
   function draw(p: p5) {
     p.background(220);
     spring.x = x;
-    spring.draw(p);
     spring.trace(p);
+    spring.draw(p);
     update();
     if (t > tMax) {
       p.noLoop();
@@ -139,7 +139,7 @@ export const DampedHarmonicOscillatorPhysical = ({
 
   function update() {
     x += v * dt;
-    v += (-b / m) * v - (k / m) * x * dt;
+    v += ((-b / m) * v - (k / m) * x) * dt;
     t += dt;
   }
 
