@@ -28,9 +28,9 @@ export class Arrow {
   }
 
   drawHead(p: p5) {
-    const { theta, x2, y2, headSize } = this;
+    const { theta, x1, x2, y2, headSize } = this;
     const dx = headSize / 2;
-    const dy = (Math.sqrt(3) / 2) * headSize;
+    const dy = (x1 < x2 ? 1 : -1) * (Math.sqrt(3) / 2) * headSize;
     p.push();
     p.angleMode(p.RADIANS);
     p.translate(x2, y2);
