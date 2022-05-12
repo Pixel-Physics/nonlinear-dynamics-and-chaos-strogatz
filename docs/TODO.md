@@ -10,20 +10,25 @@
         - [x] ~~use p-vectors instead of points~~ (over-engineering)
         - [x] implement the actual mathematics (super-hacky, but done)
     - [x] ~~katex labels? https://discourse.processing.org/t/latex-in-processing/19691/3~~ (not now)
-
-* START
     - [x] Cleaner spring class
     - [x] Damped oscillator sketches should take initial conditions as arguments.
-* [ ] Solve harmonic oscillator problems with calculus and linear analysis.
 * [x] Add sliders to play with variables.
     - [x] ~~should have a play button that restarts the sketch after variables have been set.~~ Restart automatically.
-    - [ ] control multiple components with one slider
-* [ ] Figure out a way to scrub through the sketches.
-    - [ ] caching??
 * [x] Positioning of sketches
 * [x] Create utility functions library
     - [x] grid-lines
-        - [ ] axes with labels
+* START
+    - [ ] axes with labels for phase diagrams
+    - [ ] wrap sketches in loadable.
+    - [ ] better color flow for phase-space diagrams
+    - [ ] eCharts integration?
+* [ ] Better Sliders
+    - [ ] control multiple components with one slider
+    - [ ] Set variable range based on initial values
+    - [ ] Specify ranges and steps for variables
+    - [ ] Better looking css.
+    - [ ] Slide, or input numerical value.
+* [ ] Solve harmonic oscillator problems with calculus and linear analysis.
 
 ## Deployment
 
@@ -39,7 +44,9 @@
 
 ## Bonus Challenges
 
-* [ ] ability to animate or just show end result for phase-space diagrams
+* [ ] Figure out a way to scrub through the sketches.
+    - [ ] caching??
+    - [ ] ability to animate or just show end result for phase-space diagrams
 * [ ] show coordinates on hover
 * [ ] dark mode
     - [ ] how to pass this to processing sketches?

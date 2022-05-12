@@ -1,7 +1,7 @@
 import React from "react";
 import p5 from "p5";
 import Sketch from "react-p5";
-import { gridLines } from "../../pixel-physics-p5/gridLines";
+import { gridLines } from "@pixel-physics-p5/p5/helpers/gridLines";
 import {
   defaultHarmonicOscillatorProps as defaultProps,
   HarmonicOscillatorProps as Props,
