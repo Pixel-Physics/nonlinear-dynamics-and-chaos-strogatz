@@ -1,3 +1,3 @@
-import { Arrows, defaultArrowsProps } from "./arrows";
+import { Arrow, defaultArrowProps } from "./arrows";
 
-export { Arrows, defaultArrowsProps };
+export { Arrow, defaultArrowProps };

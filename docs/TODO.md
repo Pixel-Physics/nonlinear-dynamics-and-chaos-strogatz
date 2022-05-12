@@ -23,11 +23,11 @@
     - [ ] better color flow for phase-space diagrams
     - [ ] eCharts integration?
 * [ ] Better Sliders
-    - [ ] control multiple components with one slider
+    - [ ] Slide, or input numerical value.
     - [ ] Set variable range based on initial values
+    - [ ] control multiple components with one slider
     - [ ] Specify ranges and steps for variables
     - [ ] Better looking css.
-    - [ ] Slide, or input numerical value.
 * [ ] Solve harmonic oscillator problems with calculus and linear analysis.
 
 ## Deployment
