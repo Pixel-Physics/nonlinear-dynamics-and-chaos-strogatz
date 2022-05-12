@@ -19,7 +19,6 @@
     - [x] grid-lines
 * START
     - [ ] axes with labels for phase diagrams
-    - [ ] wrap sketches in loadable.
     - [ ] better color flow for phase-space diagrams
     - [ ] eCharts integration?
 * [ ] Better Sliders

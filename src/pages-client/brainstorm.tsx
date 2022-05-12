@@ -6,7 +6,7 @@ import {
   ArrowPolar,
   defaultArrowPolarProps,
 } from "@sketch/arrow";
-import { Interactive } from "@pixel-physics-p5/components/Interactive";
+import { Interactive } from "@pixel-physics/components/Interactive";
 
 const Brainstorm = () => {
   return (

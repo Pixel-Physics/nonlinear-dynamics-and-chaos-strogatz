@@ -1,11 +1,12 @@
 import React from "react";
 import p5 from "p5";
 import Sketch from "react-p5";
-import { gridLines } from "@pixel-physics-p5/p5/helpers/gridLines";
+import { gridLines } from "@pixel-physics/p5/helpers/gridLines";
 import {
   defaultHarmonicOscillatorProps as defaultProps,
   HarmonicOscillatorProps as Props,
 } from "./common";
+import { axes } from "@pixel-physics/p5/helpers/axes";
 
 export const DampedHarmonicOscillatorPhaseSpace = ({
   m = defaultProps.m,
@@ -23,6 +24,10 @@ export const DampedHarmonicOscillatorPhaseSpace = ({
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
     p.background(0);
     drawGridLines(p);
+    p.stroke(0);
+
+    p.stroke(255);
+    axes(p);
     p.stroke(0);
 
     p.translate(p.width / 2, p.height / 2);

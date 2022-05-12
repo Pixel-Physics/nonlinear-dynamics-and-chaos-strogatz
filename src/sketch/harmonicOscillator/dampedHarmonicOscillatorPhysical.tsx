@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import p5 from "p5";
 import Sketch from "react-p5";
-import { CircularBuffer } from "@pixel-physics-p5/dataStructures/";
+import { CircularBuffer } from "@pixel-physics/dataStructures/";
 import {
   defaultHarmonicOscillatorProps as defaultProps,
   HarmonicOscillatorProps as Props,

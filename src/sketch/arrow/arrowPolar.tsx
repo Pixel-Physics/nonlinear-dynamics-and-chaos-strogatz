@@ -1,7 +1,7 @@
 import React from "react";
 import p5 from "p5";
 import Sketch from "react-p5";
-import { Arrow as ArrowObject } from "@pixel-physics-p5/p5/objects/arrow";
+import { Arrow as ArrowObject } from "@pixel-physics/p5/objects/arrow";
 
 export const defaultArrowPolarProps = {
   x1: 0,
