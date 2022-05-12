@@ -18,7 +18,7 @@
 * [x] Create utility functions library
     - [x] grid-lines
 * START
-    - [ ] axes with labels for phase diagrams
+    - [x] axes with labels for phase diagrams
     - [ ] better color flow for phase-space diagrams
     - [ ] eCharts integration?
 * [ ] Better Sliders

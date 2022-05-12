@@ -27,7 +27,7 @@ export const DampedHarmonicOscillatorPhaseSpace = ({
     p.stroke(0);
 
     p.stroke(255);
-    axes(p);
+    axes(p, canvas, "x", "v", "white");
     p.stroke(0);
 
     p.translate(p.width / 2, p.height / 2);
