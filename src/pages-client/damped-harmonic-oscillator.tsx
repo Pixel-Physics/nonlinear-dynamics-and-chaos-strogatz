@@ -5,9 +5,9 @@ import Layout from "@layout/default";
 import {
   DampedHarmonicOscillatorPhaseSpace,
   DampedHarmonicOscillatorPhysical,
+  defaultHarmonicOscillatorProps,
 } from "@sketch/harmonicOscillator/";
 import { Interactive } from "src/pixel-physics-p5/components/Interactive";
-import { defaultHarmonicOscillatorProps } from "@sketch/harmonicOscillator/common";
 
 const DampedHarmonicOscillator = () => {
   return (
