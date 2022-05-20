@@ -20,7 +20,6 @@
 * START
     - [x] axes with labels for phase diagrams
     - [ ] better color flow for phase-space diagrams
-    - [ ] eCharts integration?
 * [ ] Better Sliders
     - [ ] Slide, or input numerical value.
     - [ ] Set variable range based on initial values
@@ -28,11 +27,13 @@
     - [ ] Specify ranges and steps for variables
     - [ ] Better looking css.
 * [ ] Solve harmonic oscillator problems with calculus and linear analysis.
+* [ ] Using Apache eCharts to render graphs instead of processing?
 
 ## Deployment
 
 * [x] update README.md
 * [x] change page path from test
+* [ ] Add links to homepage
 * [ ] add poweredBy page showing open-source technology used.
 
 * [ ] max width with a paper-style background on the sides

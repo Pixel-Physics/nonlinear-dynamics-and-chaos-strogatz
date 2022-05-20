@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "@layout/default";
+import Layout from "@components/layout/default";
 import {
   Arrow,
   defaultArrowProps,

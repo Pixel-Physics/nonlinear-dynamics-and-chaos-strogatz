@@ -30,7 +30,7 @@
     "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
       "@sketch/*": ["src/sketch/*"],
-      "@layout/*": ["src/components/layout/*"],
+      "@components/*": ["src/components/*"],
       "@pages-client/*": ["src/pages-client/*"],
       "@pixel-physics/*": ["src/pixel-physics-p5/*"]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
