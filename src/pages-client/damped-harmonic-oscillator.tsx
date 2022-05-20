@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import TeX from "@matejmazur/react-katex";
-import Layout from "@layout/default";
+import Layout from "@components/layout/default";
 import {
   DampedHarmonicOscillatorPhaseSpace,
   DampedHarmonicOscillatorPhysical,
