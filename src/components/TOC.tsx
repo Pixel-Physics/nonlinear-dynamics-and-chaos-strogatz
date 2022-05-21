@@ -10,7 +10,7 @@ export const TOC = () => {
   return (
     <ul>
       {tocLinks.map(({ to, text }) => (
-        <li>
+        <li key={to}>
           <Link to={to}>{text || to.replace(/[-\/]/g, " ")}</Link>
         </li>
       ))}
