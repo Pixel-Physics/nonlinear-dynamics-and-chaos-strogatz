@@ -50,3 +50,4 @@
 * [ ] show coordinates on hover
 * [ ] dark mode
     - [ ] how to pass this to processing sketches?
+* Ability to view p5.js source code.

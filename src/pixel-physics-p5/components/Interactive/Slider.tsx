@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { css } from "@emotion/react";
 
 const styles = {
@@ -31,11 +31,7 @@ type SliderProps = {
   label?: string;
 };
 
-export const Slider = ({
-  value,
-  onChange,
-  label,
-}: SliderProps) => {
+export const Slider = ({ value, onChange, label }: SliderProps) => {
   return (
     <div css={styles.container}>
       <div css={styles.label}>{label}:</div>
