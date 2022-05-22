@@ -26,7 +26,7 @@ export const ColorPaletteSin = ({
 }: ColorPaletteSinProps) => {
   const sin = (A: number, k: number, omega: number) => ({
     functionPlot: `${A} * sin(${k} * x + ${omega}) + ${A}`,
-    dataPoint: (x: number) => A * Math.sin(k * x + omega),
+    dataPoint: (x: number) => A * Math.sin(k * x + omega) + A,
   });
   return (
     <ColorPalette
