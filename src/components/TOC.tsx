@@ -5,6 +5,7 @@ export const TOC = () => {
   const tocLinks: { to: string; text?: string }[] = [
     { to: "/", text: "home" },
     { to: "/brainstorm", text: "brainstorm" },
+    { to: "/color-palette" },
     { to: "/damped-harmonic-oscillator" },
   ];
   return (
