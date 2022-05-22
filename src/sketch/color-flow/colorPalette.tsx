@@ -14,32 +14,23 @@ const styles = {
   }),
 };
 
-/**
- *
- * @param a The height of the peak
- * @param b The horizontal shift
- * @param c The width
- * @returns
- */
-
-type ColorFunction = {
+export type ColorPaletteFunction = {
   functionPlot: string;
   dataPoint: (frameCount: number) => number;
 };
 
 export type ColorPaletteProps = {
-  r: ColorFunction;
-  g: ColorFunction;
-  b: ColorFunction;
+  r: ColorPaletteFunction;
+  g: ColorPaletteFunction;
+  b: ColorPaletteFunction;
 };
 
 export const ColorPalette = ({ r, g, b }: ColorPaletteProps) => {
   const [id] = useState(`color-palette-${v4()}`);
-  console.log(r.functionPlot);
-  let width = 600;
-  let height = 400;
 
   useEffect(() => {
+    let width = 600;
+    let height = 400;
     functionPlot({
       target: `#${id}`,
       width,
@@ -52,13 +43,17 @@ export const ColorPalette = ({ r, g, b }: ColorPaletteProps) => {
         { fn: b.functionPlot, color: "blue" },
       ],
     });
-  }, [width, height]);
+  }, []);
 
   const setup = (p: p5, canvasParentRef: Element) => {
     const canvas = p.createCanvas(400, 400).parent(canvasParentRef);
   };
 
   const draw = (p: p5) => {
+    const colorMax = 255;
+    const x = (p.frameCount - 1) * (p.width / colorMax);
+    const textSize = 40;
+
     p.strokeWeight(2);
     p.stroke(
       r.dataPoint(p.frameCount),
@@ -66,24 +61,22 @@ export const ColorPalette = ({ r, g, b }: ColorPaletteProps) => {
       b.dataPoint(p.frameCount)
     );
     // Total frames divided by max color value
-    p.line(
-      ((p.frameCount - 1) * 401) / 255,
-      50,
-      ((p.frameCount - 1) * 401) / 255,
-      p.height
-    );
-    drawFrameCount(p);
-    if (p.frameCount > 255) p.noLoop();
+    p.line(x, textSize + 10, x, p.height);
+    drawFrameCount(p, textSize);
+    if (p.frameCount > colorMax) p.noLoop();
   };
 
-  const drawFrameCount = (p: p5) => {
+  const drawFrameCount = (p: p5, textSize: number) => {
     p.push();
+    // Clear fameCount text
     p.fill(255);
-    p.stroke(255);
-    p.rect(0, 0, p.width, 50);
+    p.noStroke();
+    p.rect(0, 0, p.width, textSize);
     p.fill(0);
-    p.textSize(40);
-    p.text(`frameCount: ${p.frameCount}`, 10, 40);
+
+    // Draw frameCount
+    p.textSize(textSize);
+    p.text(`frameCount: ${p.frameCount}`, 10, textSize);
 
     p.pop();
   };
