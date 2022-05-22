@@ -4,34 +4,43 @@ import { Interactive } from "@pixel-physics/components/Interactive";
 import {
   ColorPalette,
   ColorPaletteFunction,
-} from "@sketch/color-flow/colorPalette";
+} from "@sketch/colorPalette/colorPalette";
+import { ColorPaletteGaussian } from "@sketch/colorPalette/colorPaletteGaussian";
+import { ColorPaletteSin } from "@sketch/colorPalette/colorPaletteSin";
 
 const Brainstorm = () => {
-  const a = 255;
-  const c = 70;
-  const gaussian = (a: number, b: number, c: number): ColorPaletteFunction => ({
-    functionPlot: `${a} * exp(-(x - ${b})^2 / (2 * ${c}^2))`,
-    dataPoint: (x) => a * Math.exp(-((x - b) ** 2) / (2 * c ** 2)),
-  });
-
-  const A = 255 / 2;
-  const k = (2 * Math.PI) / (255 * 2.0);
-  const sin = (A: number, k: number, o: number) => ({
-    functionPlot: `${A} * sin(${k} * x + ${o}) + ${A}`,
-    dataPoint: (x: number) => A * Math.sin(k * x + o),
-  });
+  const gaussianParams = { a: 255, c: 70 };
+  const sinParams = { A: 255 / 2, k: (2 * Math.PI) / (255 * 2) };
 
   return (
     <Layout>
-      <ColorPalette
-        r={gaussian(a, 0, c)}
-        g={gaussian(a, 127, c)}
-        b={gaussian(a, 255, c)}
+      <Interactive
+        Component={ColorPaletteSin}
+        componentProps={{
+          r_A: sinParams.A,
+          r_k: sinParams.k,
+          r_omega: 1.7,
+          g_A: sinParams.A,
+          g_k: sinParams.k * 1.5,
+          g_omega: -0.7,
+          b_A: sinParams.A,
+          b_k: sinParams.k,
+          b_omega: -1.5,
+        }}
       />
-      <ColorPalette
-        r={sin(A, k, 1.7)}
-        g={sin(A, k * 1.5, -0.7)}
-        b={sin(A, k, -1.5)}
+      <Interactive
+        Component={ColorPaletteGaussian}
+        componentProps={{
+          r_a: gaussianParams.a,
+          r_b: 0,
+          r_c: gaussianParams.c,
+          g_a: gaussianParams.a,
+          g_b: 127,
+          g_c: gaussianParams.c,
+          b_a: gaussianParams.a,
+          b_b: 255,
+          b_c: gaussianParams.c,
+        }}
       />
     </Layout>
   );
