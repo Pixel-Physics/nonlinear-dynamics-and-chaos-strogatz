@@ -10,15 +10,11 @@ export const Interactive = function <T>({
   Component,
   componentProps,
 }: InteractiveProps<T>) {
-  const [sliderProps, setSliderProps] = useState(componentProps);
-  const [internalComponentProps, setInternalComponentProps] =
-    useState(sliderProps);
-  const internalComponent = useMemo(
-    () => <Component key={Date.now()} {...internalComponentProps} />,
-    [internalComponentProps]
-  );
+  // Settings
   const [liveReload, setLiveReload] = useState(false);
 
+  // Sliders
+  const [sliderProps, setSliderProps] = useState(componentProps);
   const sliders = [];
   for (const [key, value] of Object.entries(sliderProps)) {
     sliders.push(
@@ -42,25 +38,35 @@ export const Interactive = function <T>({
     );
   }
 
+  // Component
+  const [internalComponentProps, setInternalComponentProps] =
+    useState(sliderProps);
+  const internalComponent = useMemo(
+    () => <Component key={Date.now()} {...internalComponentProps} />,
+    [internalComponentProps]
+  );
+
   return (
     <div>
-      {sliders}
-      {!liveReload && (
-        <button
-          onClick={() =>
-            setInternalComponentProps({ ...internalComponentProps })
-          }
-        >
-          Replay
-        </button>
-      )}
-      <input
-        type="checkbox"
-        checked={liveReload}
-        onClick={() => setLiveReload(!liveReload)}
-        name="liveReload"
-      />
-      <label htmlFor="liveReload">Live Reload</label>
+      <div className="interactive-settings">
+        {!liveReload && (
+          <button
+            onClick={() =>
+              setInternalComponentProps({ ...internalComponentProps })
+            }
+          >
+            Replay
+          </button>
+        )}
+        <input
+          type="checkbox"
+          checked={liveReload}
+          onClick={() => setLiveReload(!liveReload)}
+          name="liveReload"
+        />
+        <label htmlFor="liveReload">Live Reload</label>
+      </div>
+      <div className="interactive-sliders">{sliders}</div>
       {internalComponent}
     </div>
   );
