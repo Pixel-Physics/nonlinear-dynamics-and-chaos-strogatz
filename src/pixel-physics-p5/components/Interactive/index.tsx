@@ -1,4 +1,4 @@
-import React, { ComponentType, useState } from "react";
+import React, { ComponentType, useCallback, useMemo, useState } from "react";
 import { Slider } from "./Slider";
 
 type InteractiveProps<T> = {
@@ -10,17 +10,29 @@ export const Interactive = function <T>({
   Component,
   componentProps,
 }: InteractiveProps<T>) {
-  const [internalProps, setInternalProps] = useState(componentProps);
-  console.log(internalProps);
+  const [sliderProps, setSliderProps] = useState(componentProps);
+  const [internalComponentProps, setInternalComponentProps] =
+    useState(sliderProps);
+  const internalComponent = useMemo(
+    () => <Component key={Date.now()} {...internalComponentProps} />,
+    [internalComponentProps]
+  );
+  const [liveReload, setLiveReload] = useState(false);
+
   const sliders = [];
-  for (const [key, value] of Object.entries(internalProps)) {
+  for (const [key, value] of Object.entries(sliderProps)) {
     sliders.push(
       <Slider
         value={value}
         onChange={(num: number) => {
-          console.log(`key: ${key}, value: ${num}`);
-          setInternalProps({
-            ...internalProps,
+          if (liveReload) {
+            setInternalComponentProps({
+              ...internalComponentProps,
+              [key]: num,
+            });
+          }
+          setSliderProps({
+            ...sliderProps,
             [key]: num,
           });
         }}
@@ -33,7 +45,23 @@ export const Interactive = function <T>({
   return (
     <div>
       {sliders}
-      <Component key={Date.now()} {...internalProps} />
+      {!liveReload && (
+        <button
+          onClick={() =>
+            setInternalComponentProps({ ...internalComponentProps })
+          }
+        >
+          Replay
+        </button>
+      )}
+      <input
+        type="checkbox"
+        checked={liveReload}
+        onClick={() => setLiveReload(!liveReload)}
+        name="liveReload"
+      />
+      <label htmlFor="liveReload">Live Reload</label>
+      {internalComponent}
     </div>
   );
 };
