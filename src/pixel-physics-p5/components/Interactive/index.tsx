@@ -6,6 +6,11 @@ type InteractiveProps<T> = {
   componentProps: T;
 };
 
+/**
+ * TODO: 
+ * Add inputs for min, step, max, and value.
+ * Style the sliders.
+ */
 export const Interactive = function <T>({
   Component,
   componentProps,
