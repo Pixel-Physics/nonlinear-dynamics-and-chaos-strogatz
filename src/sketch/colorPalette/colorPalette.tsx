@@ -38,9 +38,9 @@ export const ColorPalette = ({ r, g, b }: ColorPaletteProps) => {
       yAxis: { domain: [0, 300], label: "color" },
       xAxis: { domain: [0, 255], label: "frameCount" },
       data: [
-        { fn: r.functionPlot, color: "red" },
-        { fn: g.functionPlot, color: "green" },
-        { fn: b.functionPlot, color: "blue" },
+        { fn: r.functionPlot, color: "red", range: [0, 255] },
+        { fn: g.functionPlot, color: "green", range: [0, 255] },
+        { fn: b.functionPlot, color: "blue", range: [0, 255] },
       ],
     });
   }, []);

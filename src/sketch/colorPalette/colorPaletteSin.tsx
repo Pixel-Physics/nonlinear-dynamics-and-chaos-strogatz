@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorPalette, ColorPaletteFunction } from "./colorPalette";
+import { ColorPalette } from "./colorPalette";
 
 type ColorPaletteSinProps = {
   r_A: number;
