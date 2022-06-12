@@ -4,6 +4,7 @@ import functionPlot from "function-plot";
 import Sketch from "react-p5";
 import p5 from "p5";
 import { v4 } from "uuid";
+import { ClickToCopy } from "@components/ClickToCopy";
 
 const styles = {
   wrapper: css({
@@ -25,8 +26,17 @@ export type ColorPaletteProps = {
   b: ColorPaletteFunction;
 };
 
+type ColorData = {
+  data: [number, number, number][];
+  showCopyButton: boolean;
+};
+
 export const ColorPalette = ({ r, g, b }: ColorPaletteProps) => {
   const [id] = useState(`color-palette-${v4()}`);
+  const [colorData, setColorData] = useState<ColorData>({
+    data: [],
+    showCopyButton: false,
+  });
 
   useEffect(() => {
     let width = 600;
@@ -55,15 +65,19 @@ export const ColorPalette = ({ r, g, b }: ColorPaletteProps) => {
     const textSize = 40;
 
     p.strokeWeight(2);
-    p.stroke(
+    colorData.data.push([
       r.dataPoint(p.frameCount),
       g.dataPoint(p.frameCount),
-      b.dataPoint(p.frameCount)
-    );
+      b.dataPoint(p.frameCount),
+    ]);
+    p.stroke(...colorData.data[p.frameCount - 1]);
     // Total frames divided by max color value
     p.line(x, textSize + 10, x, p.height);
     drawFrameCount(p, textSize);
-    if (p.frameCount > colorMax) p.noLoop();
+    if (p.frameCount > colorMax) {
+      p.noLoop();
+      setColorData({ ...colorData, showCopyButton: true });
+    }
   };
 
   const drawFrameCount = (p: p5, textSize: number) => {
@@ -93,6 +107,16 @@ export const ColorPalette = ({ r, g, b }: ColorPaletteProps) => {
             margin: "auto 0",
           })}
         />
+        <div
+          css={css({
+            visibility: colorData.showCopyButton ? "visible" : "hidden",
+            margin: "auto 0px",
+          })}
+        >
+          <ClickToCopy content={JSON.stringify(colorData.data)}>
+            Copy color data
+          </ClickToCopy>
+        </div>
       </div>
     </React.Fragment>
   );

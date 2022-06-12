@@ -19,15 +19,18 @@
     - [x] grid-lines
 * START
     - [x] axes with labels for phase diagrams
-    - [ ] better color flow for phase-space diagrams
+    - [x] export color scheme as array
+    - [x] better color flow for phase-space diagrams
 * [ ] Better Sliders
     - [ ] Slide, or input numerical value.
     - [ ] Set variable range based on initial values
     - [ ] control multiple components with one slider
     - [ ] Specify ranges and steps for variables
     - [ ] Better looking css.
+    - [ ] Look at alternatives to css-in-js
 * [ ] Solve harmonic oscillator problems with calculus and linear analysis.
-* [ ] Using Apache eCharts to render graphs instead of processing?
+* [ ] ~~Using Apache eCharts to render graphs instead of processing?~~
+
 
 ## Deployment
 
@@ -35,6 +38,7 @@
 * [x] change page path from test
 * [ ] Add links to homepage
 * [ ] add poweredBy page showing open-source technology used.
+* [ ] Re-brand as Pixel Physics
 
 * [ ] max width with a paper-style background on the sides
 * [ ] Header/Footer

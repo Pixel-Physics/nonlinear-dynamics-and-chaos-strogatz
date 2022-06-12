@@ -7,6 +7,7 @@ import {
   HarmonicOscillatorProps as Props,
 } from "./common";
 import { axes } from "@pixel-physics/p5/helpers/axes";
+import { rainbow } from "@pixel-physics/colorArrays";
 
 export const DampedHarmonicOscillatorPhaseSpace = ({
   m = defaultProps.m,
@@ -50,11 +51,7 @@ export const DampedHarmonicOscillatorPhaseSpace = ({
     if (t > tMax) {
       p.noLoop();
       p.noFill();
-      p.stroke(
-        200 + 50 * p.cos((2 * p.PI * t) / tMax),
-        200 + 50 * p.sin((2 * p.PI * t) / tMax),
-        200
-      );
+      p.stroke(...rainbow[(p.frameCount - 1) % (rainbow.length - 1)]);
       drawRipple(p, x, v);
     }
   }
