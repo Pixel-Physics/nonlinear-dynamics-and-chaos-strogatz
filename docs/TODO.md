@@ -46,6 +46,13 @@
 
 * [x] Deploy to GitHub Pages
 
+## Before Launching
+* [ ] Re-brand as Pixel Physics
+* [ ] Sketches
+    * Clean color palette (with color buckets)
+    * Full harmonic oscillator
+    * Dragon, sketch with customizable colors
+
 ## Bonus Challenges
 
 * [ ] Figure out a way to scrub through the sketches.
